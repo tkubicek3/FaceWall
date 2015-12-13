@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blogapp</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<p class="navbar-text pull-right">
+
+<div class="collapse navbar-collapse" id="navbar-collapse-1" style="padding-bottom: 10px;">
+  <% if user_signed_in? %>
+      <ul class="nav navbar-nav navbar-left">
+        <li class="stronger"><%= link_to 'Home', root_path %></li>
+        <% if current_user.has_role? :admin %>
+            <li><%= link_to 'Users list', users_index_path %></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="stronger"><%= link_to "Signed: #{current_user.email}", '#' %></li>
+        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        <li class="image round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
+      </ul>
+  <% end %>
+</div>
+
+<% if notice %>
+    <p class="alert alert-success" id="notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+    <p class="alert alert-danger" id="alert"><%= alert %></p>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

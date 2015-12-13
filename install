@@ -1,0 +1,250 @@
+Script spuštěn So 5. prosinec 2015, 23:12:05 CET
+]0;kubix@KubiX-Notebook: ~/Ruby/rails_blog/sheltered-fortress-4066kubix@KubiX-Notebook:~/Ruby/rails_blog/sheltered-fortress-4066$ export GMAIL_SMTP_USER=username@gmail.com
+]0;kubix@KubiX-Notebook: ~/Ruby/rails_blog/sheltered-fortress-4066kubix@KubiX-Notebook:~/Ruby/rails_blog/sheltered-fortress-4066$ export GMAIL_SMTP_PASSWORD=yourpassword
+]0;kubix@KubiX-Notebook: ~/Ruby/rails_blog/sheltered-fortress-4066kubix@KubiX-Notebook:~/Ruby/rails_blog/sheltered-fortress-4066$ export GMAIL_SMTP_PASSWORD=yourpasswordUSER=username@gmail.com[1Pe@gmail.com[1Pe@gmail.com[1Pe@gmail.com[1Pe@gmail.com[1P@gmail.com[1Pe@gmail.com[1Pe@gmail.com[1P@gmail.comt@gmail.comk@gmail.comu@gmail.comb@gmail.comi@gmail.comc@gmail.come@gmail.comk@gmail.com4@gmail.com
+]0;kubix@KubiX-Notebook: ~/Ruby/rails_blog/sheltered-fortress-4066kubix@KubiX-Notebook:~/Ruby/rails_blog/sheltered-fortress-4066$ export GMAIL_SMTP_USER=tkubicek4@gmail.com[3PPASSWORD=yourpassword[C[K[K[K[K[K[K[K[K[K[K[K[KVerybig0168Gm[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kls
+[0m[01;34mapp[0m  [01;34mbin[0m  [01;34mconfig[0m  config.ru  [01;34mdb[0m  Gemfile  Gemfile~  Gemfile.lock  install  [01;34mlib[0m  [01;34mlog[0m  [01;34mpublic[0m  Rakefile  README.rdoc  [01;34mtest[0m  [01;34mtmp[0m  [01;34mvendor[0m
+]0;kubix@KubiX-Notebook: ~/Ruby/rails_blog/sheltered-fortress-4066kubix@KubiX-Notebook:~/Ruby/rails_blog/sheltered-fortress-4066$ git add .
+]0;kubix@KubiX-Notebook: ~/Ruby/rails_blog/sheltered-fortress-4066kubix@KubiX-Notebook:~/Ruby/rails_blog/sheltered-fortress-4066$ git m[Kcommit -b[Km ""G"m"a"i"l" "s"e"n"d"i"n"d" "v"1", v1"[C[C[C."
+[master 70e954e] Gmail sendind, v1.
+ 3 files changed, 69 insertions(+), 20 deletions(-)
+ create mode 100644 install
+]0;kubix@KubiX-Notebook: ~/Ruby/rails_blog/sheltered-fortress-4066kubix@KubiX-Notebook:~/Ruby/rails_blog/sheltered-fortress-4066$ git push heroku mass[Kter
+Counting objects: 13, done.
+Delta compression using up to 4 threads.
+Compressing objects:  14% (1/7)   Compressing objects:  28% (2/7)   Compressing objects:  42% (3/7)   Compressing objects:  57% (4/7)   Compressing objects:  71% (5/7)   Compressing objects:  85% (6/7)   Compressing objects: 100% (7/7)   Compressing objects: 100% (7/7), done.
+Writing objects:  14% (1/7)   Writing objects:  28% (2/7)   Writing objects:  42% (3/7)   Writing objects:  57% (4/7)   Writing objects:  71% (5/7)   Writing objects:  85% (6/7)   Writing objects: 100% (7/7)   Writing objects: 100% (7/7), 1.15 KiB | 0 bytes/s, done.
+Total 7 (delta 5), reused 0 (delta 0)
+remote: Compressing source files... done.[K
+remote: Building source:[K
+remote: 
+remote: -----> Using set buildpack heroku/ruby[K
+remote: -----> Ruby app detected[K
+remote: -----> Compiling Ruby/Rails[K
+remote: -----> Using Ruby version: ruby-2.2.3[K
+remote: -----> Installing dependencies using bundler 1.9.7[K
+remote:        Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin -j4 --deployment[K
+remote:        Using rake 10.4.2[K
+remote:        Using i18n 0.7.0[K
+remote:        Using json 1.8.3[K
+remote:        Using minitest 5.8.3[K
+remote:        Using thread_safe 0.3.5[K
+remote:        Using builder 3.2.2[K
+remote:        Using erubis 2.7.0[K
+remote:        Using mini_portile2 2.0.0[K
+remote:        Using rack 1.6.4[K
+remote:        Using mime-types 2.99[K
+remote:        Using arel 6.0.3[K
+remote:        Using bcrypt 3.1.10[K
+remote:        Using cancancan 1.13.1[K
+remote:        Using coderay 1.1.0[K
+remote:        Using coffee-script-source 1.10.0[K
+remote:        Using execjs 2.6.0[K
+remote:        Using thor 0.19.1[K
+remote:        Using orm_adapter 0.5.0[K
+remote:        Using tilt 2.0.1[K
+remote:        Using multi_json 1.11.2[K
+remote:        Using method_source 0.8.2[K
+remote:        Using mimemagic 0.3.0[K
+remote:        Using nested_form 0.3.2[K
+remote:        Using pg 0.18.4[K
+remote:        Using slop 3.6.0[K
+remote:        Using bundler 1.9.7[K
+remote:        Using rails_serve_static_assets 0.0.4[K
+remote:        Using rails_stdout_logging 0.0.4[K
+remote:        Using remotipart 1.2.1[K
+remote:        Using safe_yaml 1.0.4[K
+remote:        Using sass 3.4.19[K
+remote:        Using rdoc 4.2.0[K
+remote:        Using rolify 5.0.0[K
+remote:        Using tzinfo 1.2.2[K
+remote:        Using nokogiri 1.6.7[K
+remote:        Using mail 2.6.3[K
+remote:        Using rack-test 0.6.3[K
+remote:        Using warden 1.2.3[K
+remote:        Using sprockets 3.4.1[K
+remote:        Using uglifier 2.7.2[K
+remote:        Using coffee-script 2.4.1[K
+remote:        Using haml 4.0.7[K
+remote:        Using pry 0.10.3[K
+remote:        Using rails_12factor 0.0.3[K
+remote:        Using sdoc 0.4.1[K
+remote:        Using activesupport 4.2.5[K
+remote:        Using loofah 2.0.3[K
+remote:        Using rack-pjax 0.8.0[K
+remote:        Using rails-html-sanitizer 1.0.2[K
+remote:        Using rails-deprecated_sanitizer 1.0.3[K
+remote:        Using globalid 0.3.6[K
+remote:        Using activemodel 4.2.5[K
+remote:        Using climate_control 0.0.3[K
+remote:        Using jbuilder 2.3.2[K
+remote:        Using activejob 4.2.5[K
+remote:        Using rails-dom-testing 1.0.7[K
+remote:        Using activerecord 4.2.5[K
+remote:        Using cocaine 0.5.8[K
+remote:        Using paperclip 4.3.2[K
+remote:        Using actionview 4.2.5[K
+remote:        Using actionpack 4.2.5[K
+remote:        Using actionmailer 4.2.5[K
+remote:        Using railties 4.2.5[K
+remote:        Using kaminari 0.16.3[K
+remote:        Using sprockets-rails 2.3.3[K
+remote:        Using exception_notification 4.1.1[K
+remote:        Using coffee-rails 4.1.0[K
+remote:        Using responders 2.1.0[K
+remote:        Using font-awesome-rails 4.5.0.0[K
+remote:        Using jquery-rails 4.0.5[K
+remote:        Using jquery-ui-rails 5.0.5[K
+remote:        Using rails 4.2.5[K
+remote:        Using sass-rails 5.0.4[K
+remote:        Using turbolinks 2.5.3[K
+remote:        Using devise 3.5.2[K
+remote:        Using rails_admin 0.8.1 from git://github.com/sferik/rails_admin.git (at master)[K
+remote:        Bundle complete! 23 Gemfile dependencies, 76 gems now installed.[K
+remote:        Gems in the groups development and test were not installed.[K
+remote:        Bundled gems are installed into ./vendor/bundle.[K
+remote:        Bundle completed (0.44s)[K
+remote:        Cleaning up the bundler cache.[K
+remote: -----> Preparing app for Rails asset pipeline[K
+remote:        Running: rake assets:precompile[K
+remote:        Asset precompilation completed (2.35s)[K
+remote:        Cleaning assets[K
+remote:        Running: rake assets:clean[K
+remote: 
+remote: ###### WARNING:[K
+remote:        No Procfile detected, using the default web server (webrick)[K
+remote:        https://devcenter.heroku.com/articles/ruby-default-web-server[K
+remote: 
+remote: 
+remote: -----> Discovering process types[K
+remote:        Procfile declares types     -> (none)[K
+remote:        Default types for buildpack -> console, rake, web, worker[K
+remote: 
+remote: -----> Compressing... done, 38.3MB[K
+remote: -----> Launching... done, v11[K
+remote:        https://sheltered-fortress-4066.herokuapp.com/ deployed to Heroku[K
+remote: 
+remote: Verifying deploy... done.[K
+To https://git.heroku.com/sheltered-fortress-4066.git
+   324d63c..70e954e  master -> master
+]0;kubix@KubiX-Notebook: ~/Ruby/rails_blog/sheltered-fortress-4066kubix@KubiX-Notebook:~/Ruby/rails_blog/sheltered-fortress-4066$ heroku rin[K[Kun db:reset db[C:migrate[C[C[1@ [1@r[1@a[1@k[1@e
+Running [36m[1mrake db:reset db:migrate[22m[39m on sheltered-fortress-4066... up, run.1993
+FATAL:  permission denied for database "postgres"
+DETAIL:  User does not have CONNECT privilege.
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `initialize'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `new'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `connect'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/postgresql_adapter.rb:242:in `initialize'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `new'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `postgresql_connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_handling.rb:87:in `connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/postgresql_database_tasks.rb:6:in `connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/postgresql_database_tasks.rb:28:in `drop'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/database_tasks.rb:114:in `drop'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/database_tasks.rb:128:in `block in drop_current'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/database_tasks.rb:275:in `block in each_current_configuration'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/database_tasks.rb:274:in `each'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/database_tasks.rb:274:in `each_current_configuration'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/database_tasks.rb:127:in `drop_current'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/railties/databases.rake:28:in `block (2 levels) in <top (required)>'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:240:in `call'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:240:in `block in execute'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:235:in `each'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:235:in `execute'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:179:in `block in invoke_with_call_chain'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:172:in `invoke_with_call_chain'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:165:in `invoke'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/railties/databases.rake:141:in `block (2 levels) in <top (required)>'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:240:in `call'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:240:in `block in execute'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:235:in `each'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:235:in `execute'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:179:in `block in invoke_with_call_chain'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:172:in `invoke_with_call_chain'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:165:in `invoke'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/application.rb:150:in `invoke_task'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/application.rb:106:in `block (2 levels) in top_level'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/application.rb:106:in `each'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/application.rb:106:in `block in top_level'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/application.rb:115:in `run_with_threads'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/application.rb:100:in `top_level'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/application.rb:78:in `block in run'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/application.rb:176:in `standard_exception_handling'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/application.rb:75:in `run'
+/app/bin/rake:9:in `<main>'
+Couldn't drop drqqs04bphlb3
+FATAL:  permission denied for database "postgres"
+DETAIL:  User does not have CONNECT privilege.
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `initialize'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `new'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `connect'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/postgresql_adapter.rb:242:in `initialize'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `new'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `postgresql_connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/connection_handling.rb:87:in `connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/postgresql_database_tasks.rb:6:in `connection'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/postgresql_database_tasks.rb:15:in `create'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/database_tasks.rb:93:in `create'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/database_tasks.rb:107:in `block in create_current'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/database_tasks.rb:275:in `block in each_current_configuration'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/database_tasks.rb:274:in `each'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/database_tasks.rb:274:in `each_current_configuration'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/tasks/database_tasks.rb:106:in `create_current'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/railties/databases.rake:17:in `block (2 levels) in <top (required)>'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:240:in `call'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:240:in `block in execute'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:235:in `each'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:235:in `execute'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:179:in `block in invoke_with_call_chain'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:172:in `invoke_with_call_chain'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:201:in `block in invoke_prerequisites'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:199:in `each'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:199:in `invoke_prerequisites'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:178:in `block in invoke_with_call_chain'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:172:in `invoke_with_call_chain'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:201:in `block in invoke_prerequisites'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:199:in `each'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:199:in `invoke_prerequisites'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:178:in `block in invoke_with_call_chain'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:172:in `invoke_with_call_chain'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:165:in `invoke'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-4.2.5/lib/active_record/railties/databases.rake:142:in `block (2 levels) in <top (required)>'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:240:in `call'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:240:in `block in execute'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:235:in `each'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:235:in `execute'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:179:in `block in invoke_with_call_chain'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:172:in `invoke_with_call_chain'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/task.rb:165:in `invoke'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/application.rb:150:in `invoke_task'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/application.rb:106:in `block (2 levels) in top_level'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rake/application.rb:106:in `each'
+/app/vendor/ruby-2.2.3/lib/ruby/2.2.0/rak

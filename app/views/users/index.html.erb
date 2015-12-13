@@ -1,0 +1,22 @@
+<%- model_class = Post -%>
+<div class="page-header">
+  <h1>Users</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>User ID</th>
+    <th>Email</th>
+    <th>Last login</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= user.last_sign_in_at %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
