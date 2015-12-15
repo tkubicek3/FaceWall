@@ -3,11 +3,13 @@ Rails.application.routes.draw do
 
   resources :posts
   devise_for :users
+  resources :users, :only => [:show]
 
   # You can have the root of your site routed with "root"
   root 'posts#index'
 
   match '/users', to: 'users#index', via: 'get'
+
   # Example resource route with options:
   #   resources :products do
   #     member do

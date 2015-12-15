@@ -1,11 +1,14 @@
 # UsersController
 class UsersController < ApplicationController
   def index
-    # Lepsi reseni?
-    if current_user.has_role? :admin
-      @users = User.all
+    if params[:search]
+      @users = User.search(params[:search]).order("created_at DESC")
     else
-      redirect_to posts_url
+      @users = User.order("created_at DESC")
     end
+  end
+
+  def show
+      @user = User.find(params[:id])
   end
 end

@@ -16,17 +16,17 @@
 
 .image {
     overflow: hidden;
-    #text-align: center;
     background-color: white;
-    border: 2px solid #d9d9d9;
+    border: 1px solid #d9d9d9;
 }
 
-.round-image-50 {
-    border-radius: 25px;
-    -moz-border-radius: 25px;
-    -webkit-border-radius: 25px;
-    height: 50px;
-    width: 50px;
+.round-image-40 {
+    margin-top: 7px;
+    border-radius: 19px;
+    -moz-border-radius: 19px;
+    -webkit-border-radius: 19px;
+    height: 38px;
+    width: 38px;
 }
 
 .round-image-300 {
@@ -47,4 +47,9 @@ img {
 
 html {
     padding: 20px 20px 20px 20px;
+}
+
+.search {
+    padding-left: 10px;
+    padding-top: 8px;
 }
