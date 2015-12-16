@@ -16,7 +16,6 @@
         <td><%= author_email(post) %></td>
         <td><%= post.content %></td>
         <td>
-          <% # byebug %>
           <% if can? :update, post %>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
                           edit_post_path(post), :class => 'btn btn-default btn-xs' %>

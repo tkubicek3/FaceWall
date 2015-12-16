@@ -29,6 +29,16 @@
     width: 38px;
 }
 
+.round-image-40-table {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 19px;
+    -moz-border-radius: 19px;
+    -webkit-border-radius: 19px;
+    height: 38px;
+    width: 38px;
+}
+
 .round-image-300 {
     border-radius: 100px;
     -moz-border-radius: 100px;
@@ -45,11 +55,16 @@ img {
     font-weight: bold
 }
 
-html {
-    padding: 20px 20px 20px 20px;
+#wrapper {
+    padding: 0px 20px 0px 20px;
 }
 
 .search {
+    padding-left: 1px;
+    padding-bottom: 10px;
+}
+
+.head-search {
     padding-left: 10px;
     padding-top: 8px;
 }

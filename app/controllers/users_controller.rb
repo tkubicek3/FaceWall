@@ -2,9 +2,9 @@
 class UsersController < ApplicationController
   def index
     if params[:search]
-      @users = User.search(params[:search]).order("created_at DESC")
+      @users = User.where.not(id: current_user.id).search(params[:search]).order("created_at DESC")
     else
-      @users = User.order("created_at DESC")
+      @users = User.where.not(id: current_user.id).order("created_at DESC")
     end
   end
 

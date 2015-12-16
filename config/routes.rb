@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, :only => [:show]
 
+  resources :friends, :controller => 'friendships', :except => [:show, :edit] do
+    get "requests", :on => :collection
+    get "invites", :on => :collection
+  end
+
   # You can have the root of your site routed with "root"
   root 'posts#index'
 
