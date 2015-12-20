@@ -1,5 +1,7 @@
 # UsersController
 class UsersController < ApplicationController
+  load_and_authorize_resource
+
   def index
     if params[:search]
       @users = User.where.not(id: current_user.id).search(params[:search]).order("created_at DESC")

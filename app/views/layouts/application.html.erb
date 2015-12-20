@@ -28,7 +28,6 @@
       <ul class="nav navbar-nav navbar-right" style="margin-right: 0px;">
         <li class="image round-image-40"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
         <li class="stronger"><%= link_to "#{current_user.full_name}", user_path(current_user.id) %></li>
-        <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
         <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
       </ul>
   <% end %>

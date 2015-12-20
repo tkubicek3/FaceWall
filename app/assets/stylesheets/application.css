@@ -14,6 +14,12 @@
  *= require_self
  */
 
+body {
+    min-width: 770px; /* suppose you want minimun width of 1000px */
+    width: auto !important; /* Firefox will set width as auto */
+    width: 770px; /* As IE ignores !important it will set width as 1000px; */
+}
+
 .image {
     overflow: hidden;
     background-color: white;
@@ -21,7 +27,7 @@
 }
 
 .round-image-40 {
-    margin-top: 7px;
+    margin-top: 6px;
     border-radius: 19px;
     -moz-border-radius: 19px;
     -webkit-border-radius: 19px;
@@ -67,4 +73,70 @@ img {
 .head-search {
     padding-left: 10px;
     padding-top: 8px;
+}
+
+.FlexEmbed {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+.FlexEmbed:before {
+    content: "";
+    display: block;
+    width: 100%;
+}
+
+.FlexEmbed--3by1:before {
+    padding-bottom: 33.33333%;
+}
+
+.CoverImage {
+    background-position: 50%;
+    background-color: #606060;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto 1em;
+    max-height: 333px;
+    max-width: 100%;
+}
+
+.profile {
+    width: 125px;
+    height: 125px;
+    position: relative;
+    left: 25px;
+    margin-top: -110px;
+    z-index: 2;
+    border: 4px solid white;
+    -webkit-border-radius: 2px;
+    opacity: 1;
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.full-name {
+    color: white;
+    font-size: 28px;
+    position: relative;
+    margin-top: -95px;
+    margin-left: 45px;
+    z-index: 2;
+}
+
+.edit-button {
+    position: relative;
+    margin-top: -107px;
+    z-index: 2;
+}
+
+.edit-button-td {
+    padding-right: 25px;
 }

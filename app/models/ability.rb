@@ -6,7 +6,11 @@ class Ability
     user ||= User.new
 
     if user.has_role? :admin
-      can :manage, :all
+      can :manage, Post
+      can :read, :all
+      can [:update], User do |u|
+        u.id == user.id
+      end
     elsif user.has_role? :user
       users_set(user)
     else
@@ -20,5 +24,8 @@ class Ability
       post.user_id == user.id
     end
     can :read, :all
+    can [:update], User do |u|
+      u.id == user.id
+    end
   end
 end

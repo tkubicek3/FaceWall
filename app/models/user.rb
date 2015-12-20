@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, styles: {medium: '300x300>', thumb: '100x100>'},
                     default_url: '/images/:style/missing.png'
-  validates_attachment_content_type :avatar, content_type: %r{\Aimage\/.*\Z}
+  has_attached_file :cover_photo, styles: {medium: '850x315>', thumb: '270x100>'}
+  validates_attachment_content_type :avatar, :cover_photo, content_type: %r{\Aimage\/.*\Z}
 
   after_create :default_role
 
@@ -21,8 +22,8 @@ class User < ActiveRecord::Base
   end
 
   def self.update_friendship(friendable, user, way)
-    friendable.accept_request(user) if way == 'accept'
-    friendable.decline_request(user) if way == 'decline'
+    return friendable.accept_request(user) if way == 'accept'
+    return friendable.decline_request(user) if way == 'decline'
   end
 
   def self.remove_friendship(friendable, user)
