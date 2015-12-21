@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :galleries
+  resources :gallery_images
+  resources :galleries
   get 'users/index'
 
   resources :posts

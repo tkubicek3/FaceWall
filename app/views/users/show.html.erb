@@ -1,92 +1,12 @@
-<% @users_friends = @user.friends %>
-<% @users_pendings = @user.pending_friends %>
-<% @users_requests = @user.requested_friends %>
+<%= render 'cover_and_profile' %>
+<%= render 'friends' %>
 
-<div class="CoverImage FlexEmbed FlexEmbed--3by1"
-     style="background-image: url(<%= @user.cover_photo.url %>);"
-></div>
+<%= link_to 'asdas',
+            new_gallery_path,
+            :class => 'btn btn-primary' %>
 
-<table width="100%">
-  <tr>
-    <td>
-      <img class="profile" src="<%= @user.avatar.url(:medium) %>"/>
-    </td>
-    <td style="width: 100%;">
-      <p class="full-name"><b><%= @user.full_name %></b><br> <br><%= @user.email %></p>
-    </td>
-    <td align="right" class="edit-button-td">
-      <% if can? :update, @user %>
-          <p class="input-group-btn">
-            <%= link_to '<i class="glyphicon glyphicon-edit"></i> Edit profile'.html_safe,
-                        edit_user_registration_path,
-                        :class => 'btn btn-info btn-xs edit-button' %>
-          </p>
-      <% end %>
-    </td>
-  </tr>
-</table>
-
-<h3>Friends [<%= @users_friends.count %>]</h3>
-
-<table width="40%">
-  <tbody>
-  <% @users_friends.each do |user| %>
-      <tr>
-        <td><p class="image round-image-40-table"><%= image_tag(user.avatar.url(:thumb)) %></p></td>
-        <td style="vertical-align: middle;"><%= link_to "#{user.full_name}", user_path(user.id), class: 'btn-link stronger' %></td>
-        <td style="vertical-align: middle;"><%= user.email %></td>
-        <td style="vertical-align: middle;">
-          <% if can? :update, @user %>
-              <%= link_to '<i class="glyphicon glyphicon-remove-sign"></i> Cancel friendship'.html_safe,
-                          friend_path(user),
-                          :method => 'delete',
-                          :class => 'btn btn-danger btn-xs' %>
-          <% end %>
-        </td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<% if can? :update, @user %>
-    <h3>Requirements for new friends [<%= @users_requests.count %>]</h3>
-
-    <table width="40%">
-      <tbody>
-      <% @users_requests.each do |user| %>
-          <tr>
-            <td><p class="image round-image-40-table"><%= image_tag(user.avatar.url(:thumb)) %></p></td>
-            <td style="vertical-align: middle;"><%= link_to "#{user.full_name}", user_path(user.id), class: 'btn-link stronger' %></td>
-            <td style="vertical-align: middle;"><%= user.email %></td>
-            <td style="vertical-align: middle;">
-              <%= link_to '<i class="glyphicon glyphicon-hand-up"></i> Accept'.html_safe,
-                          friend_path(user, way: :accept),
-                          :method => 'put',
-                          :class => 'btn btn-success btn-xs' %>
-              <%= link_to '<i class="glyphicon glyphicon-hand-down"></i> Decline'.html_safe,
-                          friend_path(user, way: :decline),
-                          :method => 'put',
-                          :class => 'btn btn-warning btn-xs' %>
-            </td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-
-    <h3>Pending friends [<%= @users_pendings.count %>]</h3>
-
-    <table width="40%">
-      <tbody>
-      <% @users_pendings.each do |user| %>
-          <tr>
-            <td><p class="image round-image-40-table"><%= image_tag(user.avatar.url(:thumb)) %></p></td>
-            <td style="vertical-align: middle;"><%= link_to "#{user.full_name}", user_path(user.id), class: 'btn-link stronger' %></td>
-            <td style="vertical-align: middle;"><%= user.email %></td>
-            <td style="vertical-align: middle;">
-              An invitation was sent.
-            </td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
+<% @user.galleries.each do |gallery| %>
+    <% gallery.gallery_images.each do |image| %>
+        <img class="profile" src="<%= image.photo %>"/>
+    <% end %>
 <% end %>

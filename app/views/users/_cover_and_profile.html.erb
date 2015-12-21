@@ -1,0 +1,23 @@
+<div class="CoverImage FlexEmbed FlexEmbed--3by1"
+     style="background-image: url(<%= @user.cover_photo.url %>);"
+></div>
+
+<table width="100%">
+  <tr>
+    <td>
+      <img class="profile" src="<%= @user.avatar.url(:medium) %>"/>
+    </td>
+    <td style="width: 100%;">
+      <p class="full-name"><b><%= @user.full_name %></b><br> <br><%= @user.email %></p>
+    </td>
+    <td align="right" class="edit-button-td">
+      <% if can? :update, @user %>
+          <p class="input-group-btn">
+            <%= link_to '<i class="glyphicon glyphicon-edit"></i> Edit profile'.html_safe,
+                        edit_user_registration_path,
+                        :class => 'btn btn-info btn-xs edit-button' %>
+          </p>
+      <% end %>
+    </td>
+  </tr>
+</table>
