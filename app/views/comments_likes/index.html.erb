@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Comments Likes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Comment</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments_likes.each do |comments_like| %>
+      <tr>
+        <td><%= comments_like.comment_id %></td>
+        <td><%= comments_like.user_id %></td>
+        <td><%= link_to 'Show', comments_like %></td>
+        <td><%= link_to 'Edit', edit_comments_like_path(comments_like) %></td>
+        <td><%= link_to 'Destroy', comments_like, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comments like', new_comments_like_path %>

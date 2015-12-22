@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :comments_likes
+  resources :posts_likes
+  resources :comments
+  resources :posts
   resources :galleries
   resources :gallery_images
   resources :galleries
@@ -8,7 +12,6 @@ Rails.application.routes.draw do
 
   get '/users/friends/:id', to: 'users#friends'
 
-  resources :posts
   devise_for :users
   resources :users, :only => [:show]
 

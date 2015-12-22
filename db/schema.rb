@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220205556) do
+ActiveRecord::Schema.define(version: 20151222185419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "gallery_image_id"
+    t.integer  "post_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "comments_likes", force: :cascade do |t|
+    t.integer  "comment_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "friendships", force: :cascade do |t|
     t.integer  "friendable_id"
@@ -34,7 +50,6 @@ ActiveRecord::Schema.define(version: 20151220205556) do
 
   create_table "gallery_images", force: :cascade do |t|
     t.integer  "gallery_id"
-    t.text     "description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"
@@ -45,6 +60,14 @@ ActiveRecord::Schema.define(version: 20151220205556) do
 
   create_table "posts", force: :cascade do |t|
     t.text     "content"
+    t.integer  "user_id"
+    t.integer  "gallery_image_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "posts_likes", force: :cascade do |t|
+    t.integer  "post_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
