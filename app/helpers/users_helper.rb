@@ -6,6 +6,8 @@ module UsersHelper
 end
 
 def last_login_format(date_time)
+  return '-' unless date_time
+
   date = Date.parse(date_time.to_s)
 
   if date == Date.today

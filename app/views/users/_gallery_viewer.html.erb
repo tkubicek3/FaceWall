@@ -1,0 +1,24 @@
+<h3>
+  Photo galleries
+  <% if can? :update, @user %>
+      <%= link_to 'Create new gallery',
+                  new_gallery_path,
+                  :class => 'btn btn-primary btn-xs header-btn' %>
+  <% end %>
+</h3>
+
+<% @user.galleries.each do |gallery| %>
+    <div id="links" style="padding-bottom: 10px;">
+      <h5>
+        <%= link_to gallery.title, gallery_path(gallery), :class => 'link-def' %>
+        <% if can? :update, gallery %>
+            <%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_gallery_path(gallery), :class => 'btn btn-info btn-xs btn-my' %>
+            <%= link_to '<span class="glyphicon glyphicon-remove"></span>'.html_safe, gallery, method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-danger btn-xs btn-my' %>
+        <% end %>
+      </h5>
+
+      <% gallery.gallery_images.limit(10).each do |image| %>
+          <%= link_to image_tag(image.photo.url(:thumb)), image.photo.url, data: {gallery: ''}, :class => 'gallery-thumb' %>
+      <% end %>
+    </div>
+<% end %>

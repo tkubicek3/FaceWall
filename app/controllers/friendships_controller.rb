@@ -19,7 +19,7 @@ class FriendshipsController < ApplicationController
     if User.remove_friendship(current_user, User.find(params[:id]))
       redirect_to request.referer, :notice => "Successfully removed friend!"
     else
-      redirect_to  request.referer, :notice => "Sorry, couldn't remove friend!"
+      redirect_to request.referer, :notice => "Sorry, couldn't remove friend!"
     end
   end
 end

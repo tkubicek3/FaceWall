@@ -8,6 +8,11 @@
 </head>
 <body>
 
+<% if current_user %>
+    <% request_count = current_user.requested_friends.count %>
+    <% request_count == 0 ? link = "#{current_user.full_name}" : link = "#{current_user.full_name} [#{request_count}]" %>
+<% end %>
+
 <div class="collapse navbar-inverse navbar-collapse" id="navbar-collapse-1" style="">
   <% if user_signed_in? %>
       <ul class="nav navbar-nav navbar-left">
@@ -27,7 +32,7 @@
 
       <ul class="nav navbar-nav navbar-right" style="margin-right: 0px;">
         <li class="image round-image-40"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
-        <li class="stronger"><%= link_to "#{current_user.full_name}", user_path(current_user.id) %></li>
+        <li class="stronger"><%= link_to link, user_path(current_user.id) %></li>
         <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
       </ul>
   <% end %>
@@ -43,6 +48,10 @@
 
   <%= yield %>
 </div>
+
+<!--<div class='content-block' id="footer">-->
+<!--&lt;!&ndash;FaceWall &copy; <%= Time.now.year %>, Tomas Kubicek&ndash;&gt;-->
+<!--</div>-->
 
 </body>
 </html>

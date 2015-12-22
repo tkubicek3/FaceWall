@@ -1,33 +1,41 @@
-<%= form_for(@gallery) do |f| %>
+<%= form_for @gallery, :html => {:class => "form-horizontal gallery", multipart: true} do |f| %>
 
-<% end %>
-
-<%= form_for @gallery, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
     <% if @gallery.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
-
-          <ul>
-            <% @gallery.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
+        <div id="error_expl" class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being
+              saved:</h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @gallery.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
+    <div class="form-group">
+      <%= f.label :title, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-4">
+        <%= f.text_field :title, :class => 'form-control' %>
+      </div>
+      <%= f.error_span(:title) %>
     </div>
 
-    <div class="control-group">
-      <%= f.label :images, :class => 'control-label' %>
-      <div class="controls">
-        <%= file_field_tag "images[]", type: :file, multiple: true %>
+    <div class="form-group">
+      <%= f.label 'Add Photos', :class => 'control-label col-lg-2' %>
+      <div class="col-lg-4">
+        <%= f.file_field_tag "images[]", type: :file, multiple: true %>
       </div>
     </div>
 
-    <div class="actions">
-      <%= f.submit %>
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-10">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to 'Back', request.referer, :class => 'btn btn-default' %>
+      </div>
     </div>
+
 <% end %>

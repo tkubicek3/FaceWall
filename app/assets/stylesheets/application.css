@@ -12,12 +12,44 @@
  *
  *= require_tree .
  *= require_self
+ *= require blueimp-gallery-all
  */
 
 body {
     min-width: 770px; /* suppose you want minimun width of 1000px */
     width: auto !important; /* Firefox will set width as auto */
     width: 770px; /* As IE ignores !important it will set width as 1000px; */
+    background-color: lightgray;
+}
+
+html, body, #wrapper {
+    height: 94%;
+}
+
+#footer {
+    text-align: center;
+
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    margin-top: -3em;
+}
+
+.content-block {
+    background-color: white;
+    border: solid 12px white;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.content-block h3 {
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.content-block-right {
+    margin-left: 12px;
 }
 
 .image {
@@ -101,6 +133,10 @@ img {
     max-width: 100%;
 }
 
+.CoverImageCompact {
+    max-height: 133px !important;
+}
+
 .profile {
     width: 125px;
     height: 125px;
@@ -139,4 +175,54 @@ img {
 
 .edit-button-td {
     padding-right: 25px;
+}
+
+.gallery-thumb img {
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    padding-bottom: 3px;
+}
+
+.header-btn {
+    margin-left: 20px;
+}
+
+.btn-my {
+    line-height: 1 !important;
+    padding: 1px;
+}
+
+.gallery-rmv {
+    margin-right: -16px;
+}
+
+.btn-rmv {
+    margin-top: -90px;
+}
+
+.link-def {
+    color: black;
+    font-size: 1.2em;
+}
+
+.link-def:hover {
+    color: black;
+}
+
+.link-def:visited {
+    color: black;
+}
+
+.link-def-w {
+    color: white;
+}
+
+.link-def-w:hover {
+    color: white;
+}
+
+.link-def-w:visited {
+    color: white;
 }

@@ -36,6 +36,7 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 gem 'has_friendship', :git => "https://github.com/tkubicek3/my_has_friendships.git"
+gem 'blueimp-gallery'
 
 gem 'rubocop', require: false
 

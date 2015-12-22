@@ -5,8 +5,10 @@ class GalleryImage < ActiveRecord::Base
   # validates_attachment_size :photo, :less_than => 5.megabytes
 
   has_attached_file :photo,
-                    :path => ":rails_root/public/images/users/:id/:filename",
-                    :url  => "/images/users/:id/:filename"
+                    :styles => {large: '800x800>', thumb: '100x100>'},
+                    :path => ":rails_root/public/images/users/:styles/:id/:filename",
+                    :url  => "/images/users/:styles/:id/:filename"
 
-  do_not_validate_attachment_file_type :photo
+  validates_attachment_content_type :photo, content_type: %r{\Aimage\/.*\Z}
+  validates :photo, attachment_presence: true
 end

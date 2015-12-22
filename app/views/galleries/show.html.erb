@@ -1,14 +1,20 @@
-<p id="notice"><%= notice %></p>
+<% @user = User.find(@gallery.user_id) %>
+<%= render 'users/cover_and_profile_compact' %>
+<%= render 'layouts/gallery' %>
 
-<p>
-  <strong>User:</strong>
-  <%= @gallery.user_id %>
-</p>
+<div class="content-block">
+  <h3>Gallery <%= @gallery.title %> of user <%= @user.full_name %></h3>
 
-<p>
-  <strong>Title:</strong>
-  <%= @gallery.title %>
-</p>
+  <div id="links" style="padding-bottom: 10px;">
+    <% @gallery.gallery_images.each do |image| %>
+        <% if can? :update, @gallery %>
+            <%= link_to image_tag(image.photo.url(:thumb)), image.photo.url, data: {gallery: ''}, :class => 'gallery-thumb gallery-rmv' %>
+            <%= link_to '<span class="glyphicon glyphicon-remove"></span>'.html_safe, image, method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-danger btn-xs btn-my btn-rmv' %>
+        <% else %>
+            <%= link_to image_tag(image.photo.url(:thumb)), image.photo.url, data: {gallery: ''}, :class => 'gallery-thumb' %>
+        <% end %>
+    <% end %>
+  </div>
 
-<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
-<%= link_to 'Back', galleries_path %>
+  <%= link_to 'Back', request.referer ? request.referer : user_path(:id => current_user.id), :class => 'btn btn-default', :style => 'margin-top: 20px;' %>
+</div>

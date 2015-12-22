@@ -1,6 +1,8 @@
 class GalleriesController < ApplicationController
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   # GET /galleries
   # GET /galleries.json
   def index
@@ -15,10 +17,12 @@ class GalleriesController < ApplicationController
   # GET /galleries/new
   def new
     @gallery = Gallery.new
+    @user = current_user
   end
 
   # GET /galleries/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /galleries
@@ -35,11 +39,11 @@ class GalleriesController < ApplicationController
           }
         end
 
-        format.html { redirect_to @gallery, notice: 'Gallery was successfully created.' }
+        format.html { redirect_to user_path(:id => current_user.id), notice: 'Gallery was successfully created.' }
         format.json { render :show, status: :created, location: @gallery }
       else
         format.html { render :new }
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+        format.json { render json: user_path(:id => current_user.id), status: :unprocessable_entity }
       end
     end
   end
@@ -49,11 +53,17 @@ class GalleriesController < ApplicationController
   def update
     respond_to do |format|
       if @gallery.update(gallery_params)
-        format.html { redirect_to @gallery, notice: 'Gallery was successfully updated.' }
+        if params[:images]
+          params[:images].each { |image|
+            @gallery.gallery_images.create(photo: image)
+          }
+        end
+
+        format.html { redirect_to user_path(:id => current_user.id), notice: 'Gallery was successfully updated.' }
         format.json { render :show, status: :ok, location: @gallery }
       else
         format.html { render :edit }
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+        format.json { render json: user_path(:id => current_user.id), status: :unprocessable_entity }
       end
     end
   end
@@ -63,7 +73,7 @@ class GalleriesController < ApplicationController
   def destroy
     @gallery.destroy
     respond_to do |format|
-      format.html { redirect_to galleries_url, notice: 'Gallery was successfully destroyed.' }
+      format.html { redirect_to request.referer, notice: 'Gallery was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

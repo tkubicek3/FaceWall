@@ -1,0 +1,26 @@
+<% @users_friends = @user.friends %>
+
+<h5><%= link_to "Friends [#{@users_friends.count}]", "/users/friends/#{@user.id}", :class => 'link-def' %></h5>
+
+<table width="100%">
+  <tbody>
+  <% @users_friends.each do |friend| %>
+      <tr>
+        <td><p class="image round-image-40-table"><%= image_tag(friend.avatar.url(:thumb)) %></p></td>
+        <td style="vertical-align: middle;"><%= link_to "#{friend.full_name}", user_path(friend.id), class: 'btn-link stronger' %></td>
+        <td style="vertical-align: middle;"><%= friend.email %></td>
+        <td style="vertical-align: middle;">
+          <% if can? :update, @user %>
+              <%= link_to '<i class="glyphicon glyphicon-remove-sign"></i> Cancel friendship'.html_safe,
+                          friend_path(friend),
+                          :method => 'delete',
+                          :class => 'btn btn-danger btn-xs' %>
+          <% elsif current_user.id != friend.id %>
+              <% @friend = friend %>
+              <%= render 'friends_workflow' %>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

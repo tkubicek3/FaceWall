@@ -1,0 +1,19 @@
+<%= render 'users/cover_and_profile_compact' %>
+
+<% if can? :update, @user %>
+    <div style="float:left; width: 66%;">
+      <div class="content-block" style="float:left; width: 49.5%;">
+        <%= render 'accepted_friends' %>
+      </div>
+      <div class="content-block" style="float:right;  width: 49%;">
+        <%= render 'requirement_friends' %>
+      </div>
+    </div>
+    <div class="content-block" style="float:right; width: 33%;">
+      <%= render 'pending_friends' %>
+    </div>
+<% else %>
+    <div class="content-block">
+      <%= render 'accepted_friends' %>
+    </div>
+<% end %>

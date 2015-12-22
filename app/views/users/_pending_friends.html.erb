@@ -1,0 +1,18 @@
+<% @users_pendings = @user.pending_friends %>
+
+<h5><%= link_to "Pending friends [#{@users_pendings.count}]", "/users/friends/#{@user.id}", :class => 'link-def' %></h5>
+
+<table width="100%">
+  <tbody>
+  <% @users_pendings.each do |user| %>
+      <tr>
+        <td><p class="image round-image-40-table"><%= image_tag(user.avatar.url(:thumb)) %></p></td>
+        <td style="vertical-align: middle;"><%= link_to "#{user.full_name}", user_path(user.id), class: 'btn-link stronger' %></td>
+        <td style="vertical-align: middle;"><%= user.email %></td>
+        <td style="vertical-align: middle;">
+          An invitation was sent.
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,12 +1,18 @@
+<%= render 'layouts/gallery' %>
 <%= render 'cover_and_profile' %>
-<%= render 'friends' %>
 
-<%= link_to 'asdas',
-            new_gallery_path,
-            :class => 'btn btn-primary' %>
 
-<% @user.galleries.each do |gallery| %>
-    <% gallery.gallery_images.each do |image| %>
-        <img class="profile" src="<%= image.photo %>"/>
-    <% end %>
-<% end %>
+<div style="float: left; width: 40%;">
+  <div class="content-block">
+    <%= render 'friends' %>
+  </div>
+  <div class="content-block">
+    <%= render 'gallery_viewer' %>
+  </div>
+</div>
+
+<div style="float: right; width: 60%;">
+  <div class="content-block content-block-right">
+    Trololo
+  </div>
+</div>

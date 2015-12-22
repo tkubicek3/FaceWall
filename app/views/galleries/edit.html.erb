@@ -1,6 +1,16 @@
-<h1>Editing Gallery</h1>
+<%= render 'users/cover_and_profile_compact' %>
+<%= render 'layouts/gallery' %>
 
-<%= render 'form' %>
+<div class="content-block">
+  <h3>Update gallery "<%= @gallery.title %>"</h3>
+  <%= render :partial => 'form' %>
 
-<%= link_to 'Show', @gallery %> |
-<%= link_to 'Back', galleries_path %>
+  <h4 style="padding: 20px 0 40px;">Currently in gallery</h4>
+
+  <div id="links" style="padding-bottom: 10px;">
+    <% @gallery.gallery_images.each do |image| %>
+        <%= link_to image_tag(image.photo.url(:thumb)), image.photo.url, data: {gallery: ''}, :class => 'gallery-thumb gallery-rmv' %>
+        <%= link_to '<span class="glyphicon glyphicon-remove"></span>'.html_safe, image, method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-danger btn-xs btn-my btn-rmv' %>
+  <% end %>
+  </div>
+</div>

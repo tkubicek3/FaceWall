@@ -2,21 +2,20 @@ Rails.application.routes.draw do
   resources :galleries
   resources :gallery_images
   resources :galleries
+
   get 'users/index'
+  match '/users', to: 'users#index', via: 'get'
+
+  get '/users/friends/:id', to: 'users#friends'
 
   resources :posts
   devise_for :users
   resources :users, :only => [:show]
 
-  resources :friends, :controller => 'friendships', :except => [:show, :edit] do
-    get "requests", :on => :collection
-    get "invites", :on => :collection
-  end
+  resources :friends, :controller => 'friendships', :except => [:show, :edit]
 
   # You can have the root of your site routed with "root"
   root 'posts#index'
-
-  match '/users', to: 'users#index', via: 'get'
 
   # Example resource route with options:
   #   resources :products do

@@ -1,0 +1,26 @@
+<% if current_user.friends_with?(@friend) %>
+    You are friends. &nbsp;&nbsp;
+    <%= link_to '<i class="glyphicon glyphicon-remove-sign"></i> Cancel friendship'.html_safe,
+                friend_path(@friend),
+                :method => 'delete',
+                :class => 'btn btn-danger btn-xs' %>
+
+<% elsif current_user.pending_friend?(@friend) %>
+    An invitation was sent.
+
+<% elsif current_user.requested_friend?(@friend) %>
+    <%= link_to '<i class="glyphicon glyphicon-hand-up"></i> Accept'.html_safe,
+                friend_path(@friend, way: :accept),
+                :method => 'put',
+                :class => 'btn btn-success btn-xs' %>
+    <%= link_to '<i class="glyphicon glyphicon-hand-down"></i> Decline'.html_safe,
+                friend_path(@friend, way: :decline),
+                :method => 'put',
+                :class => 'btn btn-warning btn-xs' %>
+    <%= "#{@friend.full_name} wants to be your friend. " %>
+<% else %>
+    <%= link_to '<i class="glyphicon glyphicon-hand-left"></i> Add Friend'.html_safe,
+                friends_path(:user_id => @friend),
+                :method => 'post',
+                :class => 'btn btn-success btn-xs' %>
+<% end %>
