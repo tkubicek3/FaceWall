@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :comments_likes
   resources :posts_likes
   resources :comments
   resources :posts
@@ -11,6 +10,10 @@ Rails.application.routes.draw do
   match '/users', to: 'users#index', via: 'get'
 
   get '/users/friends/:id', to: 'users#friends'
+
+  resources :posts, except: [:show] do
+    resources :comments, only: [:create, :destroy]
+  end
 
   devise_for :users
   resources :users, :only => [:show]

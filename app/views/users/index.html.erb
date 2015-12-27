@@ -29,7 +29,7 @@
           <td><p class="image round-image-40-table"><%= image_tag(friend.avatar.url(:thumb)) %></p></td>
           <td style="vertical-align: middle;"><%= link_to "#{friend.full_name}", user_path(friend.id), class: 'btn-link stronger' %></td>
           <td style="vertical-align: middle;"><%= friend.email %></td>
-          <td style="vertical-align: middle;"><%= last_login_format(friend.last_sign_in_at) %></td>
+          <td style="vertical-align: middle;"><%= date_format(friend.last_sign_in_at) %></td>
           <td style="vertical-align: middle;">
             <% @friend = friend %>
             <%= render 'friends_workflow' %>

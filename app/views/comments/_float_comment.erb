@@ -1,0 +1,12 @@
+<div style="float: left; clear: both;">
+  <div id="links" class="image square-image-100" style="margin: 0;">
+    <%= link_to image_tag(@c.gallery_image.photo.url(:large)), @c.gallery_image.photo.url, data: {gallery: ''} %>
+  </div>
+</div>
+
+<div style="float: left; padding: 0 0 0 12px;">
+  <div><%= @c.content %></div>
+</div>
+
+<div style="clear: both;">
+</div>

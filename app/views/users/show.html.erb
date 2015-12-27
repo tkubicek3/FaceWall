@@ -1,7 +1,6 @@
 <%= render 'layouts/gallery' %>
 <%= render 'cover_and_profile' %>
 
-
 <div style="float: left; width: 40%;">
   <div class="content-block">
     <%= render 'friends' %>
@@ -11,8 +10,10 @@
   </div>
 </div>
 
-<div style="float: right; width: 60%;">
-  <div class="content-block content-block-right">
-    Trololo
+<div style="float: right; width: 59%;">
+  <div class="content-block">
+    <%= render :partial => 'posts/form' %>
   </div>
+
+  <%= render 'posts/posts_block' %>
 </div>

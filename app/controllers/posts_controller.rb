@@ -6,18 +6,16 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order(updated_at: :desc)
+    @posts = Post.where('user_id IN (:ids) OR user_id = :my_id', :ids => current_user.friends.map{|friend| friend.id}, :my_id => current_user.id).order(created_at: :desc)
+    @comment = Comment.new
     @user = current_user
     @post = Post.new
-  end
-
-  # GET /posts/1
-  # GET /posts/1.json
-  def show
+    @posts_like = PostsLike.new
   end
 
   # GET /posts/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /posts
@@ -30,7 +28,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
 
     if image = params[:post][:image]
-        @post.gallery_image_id = GalleryImage.create(photo: image).id
+      @post.gallery_image_id = GalleryImage.create(photo: image).id
     end
 
     respond_to do |format|
@@ -47,13 +45,22 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    @posts = Post.all.order(:updated_at)
+    @user = current_user
+
+    if image = params[:post][:image] && @post.gallery_image_id
+      @post.gallery_image.update_attribute(:photo, image)
+    elsif image = params[:post][:image]
+      @post.gallery_image_id = GalleryImage.create(photo: image).id
+    end
+
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
+        format.html { redirect_to root_path, notice: 'Post was successfully updated.' }
+        format.json { render :index, status: :ok, location: @post }
       else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.html { render :index }
+        format.json { render json: root_path, status: :unprocessable_entity }
       end
     end
   end
@@ -63,7 +70,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

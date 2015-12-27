@@ -25,13 +25,6 @@ ActiveRecord::Schema.define(version: 20151222185419) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "comments_likes", force: :cascade do |t|
-    t.integer  "comment_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "friendships", force: :cascade do |t|
     t.integer  "friendable_id"
     t.string   "friendable_type"

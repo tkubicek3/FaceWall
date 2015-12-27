@@ -1,0 +1,40 @@
+<div class="comments-block" style="margin: 0;">
+  <h5 class="stronger">Comments</h5>
+
+  <% unless @p.comments.empty? %>
+        <% @p.comments.order(:created_at).each do |comment| %>
+            <div class="block">
+              <% @c = comment %>
+              <div style="float: left;">
+                <p class="image round-image-30"><%= image_tag(comment.user.avatar.url(:thumb)) %></p>
+              </div>
+
+              <div style="float: left; padding: 0 0 0 12px;">
+                <p class="stronger" style="margin-bottom: 0;"><%= comment.user.full_name %></p>
+
+                <p class="smaller"><%= date_format(comment.created_at) %></p>
+              </div>
+
+              <% if can? :update, comment %>
+                  <div style="float: right;">
+                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                                comment_path(comment),
+                                :method => :delete,
+                                :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
+                                :class => 'btn btn-xs btn-danger' %>
+                  </div>
+              <% end %>
+
+              <% if comment.gallery_image %>
+                  <%= render 'comments/float_comment' %>
+              <% else %>
+                  <%= render 'comments/no_float_comment' %>
+              <% end %>
+            </div>
+        <% end %>
+  <% end %>
+
+  <div style="padding-left: 12px; padding-top: 12px;">
+    <%= render :partial => 'comments/form' %>
+  </div>
+</div>

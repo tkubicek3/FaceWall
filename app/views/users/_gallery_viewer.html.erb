@@ -10,7 +10,7 @@
 <% @user.galleries.each do |gallery| %>
     <div id="links" style="padding-bottom: 10px;">
       <h5>
-        <%= link_to gallery.title, gallery_path(gallery), :class => 'link-def' %>
+        <%= link_to gallery.title, gallery_path(gallery), :class => 'link-def btn btn-link' %>
         <% if can? :update, gallery %>
             <%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_gallery_path(gallery), :class => 'btn btn-info btn-xs btn-my' %>
             <%= link_to '<span class="glyphicon glyphicon-remove"></span>'.html_safe, gallery, method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-danger btn-xs btn-my' %>

@@ -1,36 +1,8 @@
 <%= render 'users/cover_and_profile_compact' %>
+<%= render 'layouts/gallery' %>
 
-<div class="content-block" style="padding-bottom: 35px;">
+<div class="content-block">
   <%= render :partial => 'form' %>
 </div>
 
-<% @posts.each do |post| %>
-    <div class="content-block" style="padding-bottom: 35px;">
-
-      <div>
-        <p class="image round-image-40"><%= image_tag(post.user.avatar.url(:thumb)) %></p>
-      </div>
-
-      <div>
-        <p><%= post.user.full_name %></p>
-
-        <p><%= post.created_at %></p>
-      </div>
-
-      <div>
-        <p class="image round-image-40"><%= image_tag(post.gallery_image.photo.url(:thumb)) if post.gallery_image %></p>
-
-        <p><%= post.content %></p>
-      </div>
-
-      <div>
-        <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                    edit_post_path(post), :class => 'btn btn-default btn-xs' %>
-        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                    post_path(post),
-                    :method => :delete,
-                    :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
-                    :class => 'btn btn-xs btn-danger' %>
-      </div>
-    </div>
-<% end %>
+<%= render 'posts_block' %>

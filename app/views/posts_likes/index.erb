@@ -1,0 +1,55 @@
+<%= render 'users/cover_and_profile_compact' %>
+
+
+<div class="content-block">
+  <div style="float: left;">
+    <p class="image round-image-50"><%= image_tag(@p.user.avatar.url(:thumb)) %></p>
+  </div>
+
+  <div style="float: left; padding: 5px 0 0 12px;">
+    <p class="stronger bigger" style="margin-bottom: 0;"><%= @p.user.full_name %></p>
+
+    <p><%= date_format(@p.created_at) %></p>
+  </div>
+
+  <% if @p.gallery_image %>
+      <%= render 'posts/float_post' %>
+  <% else %>
+      <%= render 'posts/no_float_post' %>
+  <% end %>
+</div>
+
+<div class="content-block">
+  <h3>Post likes</h3>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th>User name</th>
+      <th>Email</th>
+      <th>Last login</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @p.posts_likes.each do |like| %>
+        <% liked_user = like.user %>
+
+        <tr>
+          <td><p class="image round-image-40-table"><%= image_tag(liked_user.avatar.url(:thumb)) %></p></td>
+          <td style="vertical-align: middle;"><%= link_to "#{liked_user.full_name}", user_path(liked_user.id), class: 'btn-link stronger' %></td>
+          <td style="vertical-align: middle;"><%= liked_user.email %></td>
+          <td style="vertical-align: middle;"><%= date_format(liked_user.last_sign_in_at) %></td>
+          <td style="vertical-align: middle;">
+            <% unless liked_user.id == current_user.id %>
+                <% @friend = liked_user %>
+                <%= render 'users/friends_workflow' %>
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+

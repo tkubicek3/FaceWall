@@ -1,33 +1,34 @@
-<%= form_for(@comment) do |f| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+<%= form_for [@p, @p.comments.new] do |f| %>
+    <% if @comment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-      <ul>
-      <% @comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @comment.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div style="float: left;">
+      <p class="image round-image-30"><%= image_tag(current_user.avatar.url(:thumb)) %></p>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :gallery_image_id %><br>
-    <%= f.number_field :gallery_image_id %>
-  </div>
-  <div class="field">
-    <%= f.label :post_id %><br>
-    <%= f.number_field :post_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div style="float: left; width: 66%; padding: 2px 0 0 12px;">
+      <div>
+        <%= f.text_area :content, :class => 'form-control', placeholder: 'Write a comment...', :style => 'height: 34px; resize:vertical;' %>
+      </div>
+    </div>
+
+    <div class="add-photo">
+      <%= f.file_field :image %>
+    </div>
+
+    <div style="clear: both; margin-left: 42px; padding-top: 8px;">
+      <div>
+        <% (@comment.id) ? label = 'Update comment' : label = 'Add comment' %>
+        <%= f.submit label, :class => 'btn btn-xs btn-primary' %>
+      </div>
+    </div>
 <% end %>

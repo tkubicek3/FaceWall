@@ -3,17 +3,6 @@ class GalleriesController < ApplicationController
 
   load_and_authorize_resource
 
-  # GET /galleries
-  # GET /galleries.json
-  def index
-    @galleries = Gallery.all
-  end
-
-  # GET /galleries/1
-  # GET /galleries/1.json
-  def show
-  end
-
   # GET /galleries/new
   def new
     @gallery = Gallery.new

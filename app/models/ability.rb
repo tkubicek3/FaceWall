@@ -4,11 +4,10 @@ class Ability
 
   def initialize(user)
     user ||= User.new
+    can :read, :all
 
     if user.has_role? :user
       users_set(user)
-    else
-      can :read, :all
     end
   end
 
@@ -17,7 +16,10 @@ class Ability
     can [:update, :destroy], Post do |post|
       post.user_id == user.id
     end
-    can :read, :all
+    can :create, Comment
+    can [:update, :destroy], Comment do |comment|
+      comment.user_id == user.id
+    end
     can :friends, User
     can [:update], User do |u|
       u.id == user.id
