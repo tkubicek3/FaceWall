@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get '/users/friends/:id', to: 'users#friends'
 
+  get '/post_with_image/:id', to: 'gallery_images#post_with_image', as: 'post_with_image'
+
   resources :posts, except: [:show] do
     resources :comments, only: [:create, :destroy]
   end

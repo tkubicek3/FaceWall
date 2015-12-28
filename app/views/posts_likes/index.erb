@@ -1,6 +1,5 @@
 <%= render 'users/cover_and_profile_compact' %>
 
-
 <div class="content-block">
   <div style="float: left;">
     <p class="image round-image-50"><%= image_tag(@p.user.avatar.url(:thumb)) %></p>
@@ -8,7 +7,6 @@
 
   <div style="float: left; padding: 5px 0 0 12px;">
     <p class="stronger bigger" style="margin-bottom: 0;"><%= @p.user.full_name %></p>
-
     <p><%= date_format(@p.created_at) %></p>
   </div>
 

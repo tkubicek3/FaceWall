@@ -6,7 +6,16 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.where('user_id IN (:ids) OR user_id = :my_id', :ids => current_user.friends.map{|friend| friend.id}, :my_id => current_user.id).order(created_at: :desc)
+    if params[:search]
+      @posts = Post.search(params[:search]).order(created_at: :desc) + Post.search_by_user(params[:search])
+    elsif id = params[:search_by_image_id]
+      @posts = Post.where(:gallery_image_id => id)
+    else
+      @posts = Post.where('user_id IN (:ids) OR user_id = :my_id',
+                          :ids => current_user.friends.map { |friend| friend.id },
+                          :my_id => current_user.id).order(created_at: :desc)
+    end
+
     @comment = Comment.new
     @user = current_user
     @post = Post.new

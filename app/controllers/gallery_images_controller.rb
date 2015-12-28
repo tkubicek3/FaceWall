@@ -24,6 +24,13 @@ class GalleryImagesController < ApplicationController
     end
   end
 
+  def post_with_image
+    @user = current_user
+    @post = Post.new
+    @post.gallery_image_id = params[:id]
+    @image = GalleryImage.find(params[:id])
+  end
+
   # DELETE /gallery_images/1
   # DELETE /gallery_images/1.json
   def destroy

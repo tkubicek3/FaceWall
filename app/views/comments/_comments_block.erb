@@ -10,8 +10,7 @@
               </div>
 
               <div style="float: left; padding: 0 0 0 12px;">
-                <p class="stronger" style="margin-bottom: 0;"><%= comment.user.full_name %></p>
-
+                <p class="stronger" style="margin-bottom: 0;"><%= link_to comment.user.full_name, user_path(comment.user.id), :class => 'link-def-b' %></p>
                 <p class="smaller"><%= date_format(comment.created_at) %></p>
               </div>
 

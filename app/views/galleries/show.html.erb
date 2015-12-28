@@ -7,11 +7,15 @@
 
   <div id="links" style="padding-bottom: 10px;">
     <% @gallery.gallery_images.each do |image| %>
-        <% if can? :update, @gallery %>
-            <%= link_to image_tag(image.photo.url(:thumb)), image.photo.url, data: {gallery: ''}, :class => 'gallery-thumb gallery-rmv' %>
-            <%= link_to '<span class="glyphicon glyphicon-remove"></span>'.html_safe, image, method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-danger btn-xs btn-my btn-rmv' %>
+        <%= link_to image_tag(image.photo.url(:thumb)), image.photo.url, data: {gallery: ''}, :class => 'gallery-thumb gallery-rmv' %>
+        <% if Post.where(:gallery_image_id => image.id).empty? %>
+            <%= link_to '<span class="glyphicon glyphicon-comment"></span>'.html_safe,
+                        post_with_image_path(:id => image.id),
+                        :class => 'btn btn-primary btn-xs btn-my btn-rmv' %>
         <% else %>
-            <%= link_to image_tag(image.photo.url(:thumb)), image.photo.url, data: {gallery: ''}, :class => 'gallery-thumb' %>
+            <%= link_to '<span class="glyphicon glyphicon-comment"></span>'.html_safe,
+                        root_path(:search_by_image_id => image.id),
+                        :class => 'btn btn-success btn-xs btn-my btn-rmv' %>
         <% end %>
     <% end %>
   </div>

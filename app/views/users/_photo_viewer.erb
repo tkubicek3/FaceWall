@@ -1,0 +1,10 @@
+<h3>Photos from Posts</h3>
+
+<div id="links" style="padding-bottom: 10px;">
+  <% @user.posts.each do |post| %>
+      <% post.gallery_image %>
+      <% unless (image = post.gallery_image).nil? %>
+          <%= link_to image_tag(image.photo.url(:thumb)), image.photo.url, data: {gallery: ''}, :class => 'gallery-thumb' %>
+      <% end %>
+  <% end %>
+</div>

@@ -18,7 +18,16 @@
       </h5>
 
       <% gallery.gallery_images.limit(10).each do |image| %>
-          <%= link_to image_tag(image.photo.url(:thumb)), image.photo.url, data: {gallery: ''}, :class => 'gallery-thumb' %>
+          <%= link_to image_tag(image.photo.url(:thumb)), image.photo.url, data: {gallery: ''}, :class => 'gallery-thumb gallery-rmv' %>
+          <% if Post.where(:gallery_image_id => image.id).empty? %>
+              <%= link_to '<span class="glyphicon glyphicon-comment"></span>'.html_safe,
+                          post_with_image_path(:id => image.id),
+                          :class => 'btn btn-primary btn-xs btn-my btn-rmv'%>
+          <% else %>
+              <%= link_to '<span class="glyphicon glyphicon-comment"></span>'.html_safe,
+                          root_path(:search_by_image_id => image.id),
+                          :class => 'btn btn-success btn-xs btn-my btn-rmv' %>
+          <% end %>
       <% end %>
     </div>
 <% end %>

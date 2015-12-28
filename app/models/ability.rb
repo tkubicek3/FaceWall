@@ -28,7 +28,7 @@ class Ability
     can [:update, :destroy], Gallery do |g|
       g.user_id == user.id
     end
-    can :create, GalleryImage
+    can [:create, :post_with_image], GalleryImage
     can [:update, :destroy], GalleryImage do |img|
       user.galleries.map { |g| g.id }.include?(img.gallery_id)
     end

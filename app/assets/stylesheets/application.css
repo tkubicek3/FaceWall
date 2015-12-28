@@ -22,10 +22,6 @@ body {
     background-color: lightgray;
 }
 
-html, body, #wrapper {
-    height: 94%;
-}
-
 #footer {
     position: relative;
     top: 25px;
@@ -245,7 +241,7 @@ img {
 }
 
 .gallery-rmv {
-    margin-right: -16px;
+    margin-right: -19px;
 }
 
 .btn-rmv {
@@ -254,6 +250,18 @@ img {
 
 .link-def {
     padding: 0 12px 0 0 !important;
+}
+
+.link-def-b {
+    color: black;
+}
+
+.link-def-b:hover {
+    color: black;
+}
+
+.link-def-b:visited {
+    color: black;
 }
 
 .link-def-w {

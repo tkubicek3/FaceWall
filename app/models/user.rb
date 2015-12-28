@@ -32,13 +32,13 @@ class User < ActiveRecord::Base
     friendable.remove_friend(user)
   end
 
+  def self.search(query)
+    where("#{:full_name} ILIKE ? OR #{:email} ILIKE ?", "%#{query}%", "%#{query}%")
+  end
+
   private
 
   def default_role
     add_role(:user) if roles.blank?
-  end
-
-  def self.search(query)
-    where("#{:full_name} ILIKE ? OR #{:email} ILIKE ?", "%#{query}%", "%#{query}%")
   end
 end

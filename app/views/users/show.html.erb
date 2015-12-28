@@ -8,12 +8,17 @@
   <div class="content-block">
     <%= render 'gallery_viewer' %>
   </div>
+  <div class="content-block">
+    <%= render 'photo_viewer' %>
+  </div>
 </div>
 
 <div style="float: right; width: 59%;">
-  <div class="content-block">
-    <%= render :partial => 'posts/form' %>
-  </div>
+  <% if can? :update, @user %>
+      <div class="content-block">
+        <%= render :partial => 'posts/form' %>
+      </div>
+  <% end %>
 
   <%= render 'posts/posts_block' %>
 </div>

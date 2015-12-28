@@ -20,10 +20,9 @@
         <li><%= link_to 'Users', users_index_path %></li>
       </ul>
 
-      <!-- TODO Vzhledavani v prispevcivh ne v uyivatelich-->
-      <%= form_tag(users_index_path, :method => 'get', class: 'col-sm-3 col-md-3 nav navbar-nav navbar-left head-search') do %>
+      <%= form_tag(root_path, :method => 'get', class: 'col-sm-3 col-md-3 nav navbar-nav navbar-left head-search') do %>
           <div class="input-group">
-            <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Find post' %>
+            <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search in posts' %>
             <div class="input-group-btn">
               <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
@@ -49,9 +48,9 @@
   <%= yield %>
 </div>
 
-<!--<div class='content-block' id="footer">-->
-  <!--FaceWall &copy; <%= Time.now.year %>, Tomas Kubicek-->
-<!--</div>-->
+<div class='content-block' id="footer">
+  FaceWall &copy; <%= Time.now.year %>, Tomas Kubicek
+</div>
 
 </body>
 </html>
