@@ -14,6 +14,10 @@ class GalleriesController < ApplicationController
     @user = current_user
   end
 
+  def show
+    @user = User.find(@gallery.user_id)
+  end
+
   # POST /galleries
   # POST /galleries.json
   def create

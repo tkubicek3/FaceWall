@@ -7,7 +7,7 @@
   <% end %>
 </h3>
 
-<% @user.galleries.each do |gallery| %>
+<% @user.galleries.order(updated_at: :desc).each do |gallery| %>
     <div id="links" style="padding-bottom: 10px;">
       <h5>
         <%= link_to gallery.title, gallery_path(gallery), :class => 'link-def btn btn-link' %>

@@ -1,5 +1,4 @@
 <%= form_for @gallery, :html => {:class => "form-horizontal gallery", multipart: true} do |f| %>
-
     <% if @gallery.errors.any? %>
         <div id="error_expl" class="panel panel-danger">
           <div class="panel-heading">
@@ -37,5 +36,4 @@
         <%= link_to 'Back', request.referer, :class => 'btn btn-default' %>
       </div>
     </div>
-
 <% end %>
