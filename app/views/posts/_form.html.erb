@@ -25,11 +25,12 @@
       </div>
     </div>
 
-    <div class="add-photo">
-      <% (@post.id) ? label = 'Change photo' : label = 'Add photo' %>
-      <%= f.label label %>
-      <%= f.file_field :image %>
-    </div>
+    <% unless @post.id %>
+        <div class="add-photo">
+          <%= f.label 'Add photo' %>
+          <%= f.file_field :image %>
+        </div>
+    <% end %>
 
     <div style="clear: both; margin-left: 62px; padding-top: 8px;">
       <div>

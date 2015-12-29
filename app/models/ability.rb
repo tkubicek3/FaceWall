@@ -30,7 +30,7 @@ class Ability
     end
     can [:create, :post_with_image], GalleryImage
     can [:update, :destroy], GalleryImage do |img|
-      user.galleries.map { |g| g.id }.include?(img.gallery_id)
+      !user.galleries.where(:id => img.gallery_id).empty?
     end
   end
 

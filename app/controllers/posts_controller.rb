@@ -57,12 +57,6 @@ class PostsController < ApplicationController
     @posts = Post.all.order(:updated_at)
     @user = current_user
 
-    if image = params[:post][:image] && @post.gallery_image_id
-      @post.gallery_image.update_attribute(:photo, image)
-    elsif image = params[:post][:image]
-      @post.gallery_image_id = GalleryImage.create(photo: image).id
-    end
-
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to root_path, notice: 'Post was successfully updated.' }
