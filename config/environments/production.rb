@@ -82,13 +82,4 @@ Rails.application.configure do
       :user_name => "168f3677a573e9bccf47c996b4ff5b11",
       :password => "4decf74a23c55b7a7c6b9d1bda55b6a0"
   }
-
-  Rails.application.config.middleware.use ExceptionNotification::Rack,
-                                          email: {
-                                            email_prefix: '[Notifier] ',
-                                            sender_address:
-                                                  %("" <notifier@example.com>),
-                                            exception_recipients:
-                                                  %w(tkubicek4@gmail.com)
-                                          }
 end
