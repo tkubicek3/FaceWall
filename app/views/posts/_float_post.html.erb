@@ -1,6 +1,6 @@
 <div style="float: left; clear: both;">
   <div id="links" class="image square-image-200" style="margin: 0;">
-    <%= link_to image_tag(@p.gallery_image.photo.url(:large)), @p.gallery_image.photo.url, data: {gallery: ''} %>
+    <%= link_to image_tag(@p.gallery_image.photo.url(:large)), @p.gallery_image.photo.url, data: {gallery: ' ' + @p.gallery_image.id.to_s} %>
   </div>
 </div>
 
