@@ -7,13 +7,22 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if params[:search]
-      @posts = Post.search(params[:search]).order(created_at: :desc) + Post.search_by_user(params[:search])
+      @posts = Post.search(params[:search]) + Post.search_by_user(params[:search])
+      @posts = @posts.sort.reverse{|a,b| a[:created_at] <=> b[:created_at]}
     elsif id = params[:search_by_image_id]
       @posts = Post.where(:gallery_image_id => id)
     else
+      #FASTER
       @posts = Post.where('user_id IN (:ids) OR user_id = :my_id',
                           :ids => current_user.friends.map { |friend| friend.id },
                           :my_id => current_user.id).order(created_at: :desc)
+
+      # SLOWER
+      # @post = current_user.posts
+      #
+      # current_user.friends.each do |friend|
+      #   @post += friend.posts
+      # end
     end
 
     @comment = Comment.new
@@ -33,6 +42,7 @@ class PostsController < ApplicationController
     @posts = Post.all.order(:updated_at)
     @user = current_user
     @post = Post.new(post_params)
+    @comment = Comment.new
 
     @post.user_id = current_user.id
 

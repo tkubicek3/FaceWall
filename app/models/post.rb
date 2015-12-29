@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   belongs_to :gallery_image
 
   validates :content, :user_id, presence: true
-  validates :gallery_image_id, uniqueness: true
+  validates :gallery_image_id, uniqueness: true, :allow_nil => true
 
   private
 
