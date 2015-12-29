@@ -18,7 +18,7 @@
       </h5>
 
       <% gallery.gallery_images.limit(10).each do |image| %>
-          <%= link_to image_tag(image.photo.url(:thumb)), image.photo.url, data: {gallery: ' ' + gallery.title}, :class => 'gallery-thumb gallery-rmv' %>
+          <%= link_to image_tag(image.photo.url(:thumb)), image.photo.url, data: {:gallery => ''}, :class => 'gallery-thumb gallery-rmv' %>
           <% if Post.where(:gallery_image_id => image.id).empty? %>
               <%= link_to '<span class="glyphicon glyphicon-comment"></span>'.html_safe,
                           post_with_image_path(:id => image.id),
