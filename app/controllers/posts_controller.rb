@@ -1,3 +1,4 @@
+# PostContoller
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
@@ -6,24 +7,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    if params[:search]
-      @posts = Post.search(params[:search]) + Post.search_by_user(params[:search])
-      @posts = @posts.sort.reverse{|a,b| a[:created_at] <=> b[:created_at]}
-    elsif id = params[:search_by_image_id]
-      @posts = Post.where(:gallery_image_id => id)
-    else
-      #FASTER
-      @posts = Post.where('user_id IN (:ids) OR user_id = :my_id',
-                          :ids => current_user.friends.map { |friend| friend.id },
-                          :my_id => current_user.id).order(created_at: :desc)
-
-      # SLOWER
-      # @post = current_user.posts
-      #
-      # current_user.friends.each do |friend|
-      #   @post += friend.posts
-      # end
-    end
+    index_posts
 
     @comment = Comment.new
     @user = current_user
@@ -39,24 +23,16 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @posts = Post.all.order(:updated_at)
-    @user = current_user
-    @post = Post.new(post_params)
-    @comment = Comment.new
+    vars_init
 
-    @post.user_id = current_user.id
-
-    if image = params[:post][:image]
-      @post.gallery_image_id = GalleryImage.create(photo: image).id
-    end
+    image = params[:post][:image]
+    @post.gallery_image_id = GalleryImage.create(photo: image).id if image
 
     respond_to do |format|
       if @post.save
         format.html { redirect_to root_path, notice: 'Post was successfully created.' }
-        format.json { render :index, status: :created, location: @post }
       else
         format.html { render :index }
-        format.json { render json: root_path, status: :unprocessable_entity }
       end
     end
   end
@@ -70,10 +46,8 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to root_path, notice: 'Post was successfully updated.' }
-        format.json { render :index, status: :ok, location: @post }
       else
         format.html { render :index }
-        format.json { render json: root_path, status: :unprocessable_entity }
       end
     end
   end
@@ -89,13 +63,43 @@ class PostsController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet.
   def post_params
     params.require(:post).permit(:content, :user_id, :gallery_image_id)
+  end
+
+  def vars_init
+    @posts = Post.all.order(:updated_at)
+    @user = current_user
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    @comment = Comment.new
+  end
+
+  def index_posts
+    if params[:search]
+      @posts = Post.search(params[:search]) + Post.search_by_user(params[:search])
+      @posts = @posts.sort.reverse { |a, b| a[:created_at] <=> b[:created_at] }
+    elsif params[:search_by_image_id]
+      @posts = Post.where(gallery_image_id: params[:search_by_image_id])
+    else
+      # FASTER
+      @posts = Post.where('user_id IN (:ids) OR user_id = :my_id',
+                          ids: current_user.friends.map(&:id),
+                          my_id: current_user.id).order(created_at: :desc)
+
+      # SLOWER
+      # @post = current_user.posts
+      #
+      # current_user.friends.each do |friend|
+      #   @post += friend.posts
+      # end
+    end
   end
 end

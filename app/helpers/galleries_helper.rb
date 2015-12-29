@@ -1,2 +1,3 @@
+# GalleriesHelper
 module GalleriesHelper
 end

@@ -1,3 +1,4 @@
+# Migrate
 class CreatePostsLikes < ActiveRecord::Migration
   def change
     create_table :posts_likes do |t|

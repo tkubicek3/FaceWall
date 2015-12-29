@@ -1,2 +1,3 @@
+# FriendshipsHelper
 module FriendshipsHelper
 end

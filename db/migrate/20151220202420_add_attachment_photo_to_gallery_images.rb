@@ -1,3 +1,4 @@
+# Migrate
 class AddAttachmentPhotoToGalleryImages < ActiveRecord::Migration
   def self.up
     change_table :gallery_images do |t|

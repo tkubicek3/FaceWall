@@ -10,7 +10,7 @@ module ApplicationHelper
     elsif (date > Date.today - 7) && (date < Date.yesterday)
       return 'This week'
     else
-      date_time.strftime("at %H:%M %d/%m/%Y")
+      date_time.strftime('at %H:%M %d/%m/%Y')
     end
   end
 end

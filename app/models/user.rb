@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
-  has_attached_file :avatar, styles: {medium: '300x300>', thumb: '100x100>'},
-                    default_url: '/images/:style/missing.png'
-  has_attached_file :cover_photo, styles: {medium: '850x315>', thumb: '270x100>'}
+  has_attached_file :avatar, styles: { medium: '300x300>', thumb: '100x100>' },
+                             default_url: '/images/:style/missing.png'
+  has_attached_file :cover_photo, styles: { medium: '850x315>', thumb: '270x100>' }
   validates_attachment_content_type :avatar, :cover_photo, content_type: %r{\Aimage\/.*\Z}
 
   after_create :default_role

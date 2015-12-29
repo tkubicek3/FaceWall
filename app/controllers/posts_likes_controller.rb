@@ -1,3 +1,4 @@
+# PostsLikesController
 class PostsLikesController < ApplicationController
   before_action :set_posts_like, only: [:show, :edit, :update, :destroy]
 
@@ -37,6 +38,7 @@ class PostsLikesController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_posts_like
     @posts_like = PostsLike.find(params[:id])

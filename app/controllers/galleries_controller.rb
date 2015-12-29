@@ -1,3 +1,4 @@
+# GalleriesController
 class GalleriesController < ApplicationController
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
@@ -26,17 +27,10 @@ class GalleriesController < ApplicationController
 
     respond_to do |format|
       if @gallery.save
-        if params[:images]
-          params[:images].each { |image|
-            @gallery.gallery_images.create(photo: image)
-          }
-        end
-
-        format.html { redirect_to user_path(:id => current_user.id), notice: 'Gallery was successfully created.' }
-        format.json { render :show, status: :created, location: @gallery }
+        update_images
+        format.html { redirect_to user_path(id: current_user.id), notice: 'Gallery was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: user_path(:id => current_user.id), status: :unprocessable_entity }
       end
     end
   end
@@ -46,17 +40,10 @@ class GalleriesController < ApplicationController
   def update
     respond_to do |format|
       if @gallery.update(gallery_params)
-        if params[:images]
-          params[:images].each { |image|
-            @gallery.gallery_images.create(photo: image)
-          }
-        end
-
-        format.html { redirect_to user_path(:id => current_user.id), notice: 'Gallery was successfully updated.' }
-        format.json { render :show, status: :ok, location: @gallery }
+        update_images
+        format.html { redirect_to user_path(id: current_user.id), notice: 'Gallery was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: user_path(:id => current_user.id), status: :unprocessable_entity }
       end
     end
   end
@@ -72,6 +59,7 @@ class GalleriesController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_gallery
     @gallery = Gallery.find(params[:id])
@@ -80,5 +68,13 @@ class GalleriesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def gallery_params
     params.require(:gallery).permit(:user_id, :title)
+  end
+
+  def update_images
+    return unless params[:images]
+
+    params[:images].each do |image|
+      @gallery.gallery_images.create(photo: image)
+    end
   end
 end

@@ -1,3 +1,4 @@
+# GalleryImagesController
 class GalleryImagesController < ApplicationController
   before_action :set_gallery_image, only: [:show, :edit, :update, :destroy]
 
@@ -42,6 +43,7 @@ class GalleryImagesController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_gallery_image
     @gallery_image = GalleryImage.find(params[:id])
