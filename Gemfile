@@ -30,7 +30,6 @@ gem 'cancancan', '~> 1.10'
 gem 'rolify'
 gem 'paperclip', '~> 4.3'
 gem 'rails_admin', git: 'git://github.com/sferik/rails_admin.git'
-gem 'mailjet'
 
 gem 'therubyracer'
 gem 'less-rails'
