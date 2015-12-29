@@ -15,7 +15,6 @@ class Ability
     ab_user(user)
     ab_gallery(user)
     ab_images(user)
-
   end
 
   private
