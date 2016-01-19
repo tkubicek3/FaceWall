@@ -47,7 +47,6 @@ body {
     margin-top: 12px;
 }
 
-
 .block {
     margin: 12px 0 12px 12px;
 }
@@ -233,6 +232,7 @@ img {
     width: auto;
     height: auto;
     padding-bottom: 35px;
+    padding-right: 1px;
 }
 
 .header-btn {
@@ -281,5 +281,7 @@ img {
 }
 
 .add-photo {
-    float: right; width: 217px; padding: 4px 0 0 3px;
+    float: right;
+    width: 217px;
+    padding: 4px 0 0 3px;
 }
