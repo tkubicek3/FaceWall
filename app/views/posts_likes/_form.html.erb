@@ -1,7 +1,0 @@
-<%= form_for(@posts_like) do |f| %>
-
-<%= link_to '<i class="glyphicon glyphicon-remove-sign"></i> Cancel friendship'.html_safe,
-            posts_likes_path('posts_like[post_id]' => @p.id),
-            :method => 'create',
-            :class => 'btn btn-danger btn-xs'  %>
-<% end %>
