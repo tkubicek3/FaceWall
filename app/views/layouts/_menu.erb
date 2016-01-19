@@ -1,4 +1,3 @@
-
 <% if current_user %>
     <% request_count = current_user.requested_friends.count %>
     <% request_count == 0 ? link = "#{current_user.full_name}" : link = "#{current_user.full_name} [#{request_count}]" %>
@@ -7,7 +6,10 @@
 <div class="collapse navbar-inverse navbar-collapse" id="navbar-collapse-1" style="">
   <% if user_signed_in? %>
       <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to ' FaceWall', root_path, class: 'stronger glyphicon glyphicon-home', style: 'line-height: normal;' %></li>
+        <li><%= link_to root_path do %>
+              <span class='stronger glyphicon glyphicon-home' style='line-height: normal;'> FaceWall</span>
+          <% end %>
+        </li>
         <li><%= link_to 'Users', users_index_path %></li>
       </ul>
 
