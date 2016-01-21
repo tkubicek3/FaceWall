@@ -3,7 +3,8 @@
 <div id="links" style="padding-bottom: 10px;">
   <% @user.posts.each do |post| %>
       <% post.gallery_image %>
-      <% unless (image = post.gallery_image).nil? %>
+      <% image = post.gallery_image %>
+      <% if !image.nil? && image.gallery_id.nil? %>
           <%= link_to image_tag(image.photo.url(:thumb)), image.photo.url, data: {gallery: 'from_posts'}, :class => 'gallery-thumb' %>
       <% end %>
   <% end %>
